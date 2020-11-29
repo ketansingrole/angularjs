@@ -3,14 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./js/angular.min.js"></script>
-    <title>Portfolio</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link rel="stylesheet" href="./css/background.css" />
+    <link rel="stylesheet" href="./css/topnav.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Hello World</title>
   </head>
-  <body>
-    Hello World;
-    <div ng-app="">
-      <p>Name: <input type="text" ng-model="name" /></p>
-      <p ng-bind="name"></p>
+  <body ng-app="myApp">
+    <div class="topnav">
+      <a ng-href="#/!" class="active">Home</a>
+      <a ng-href="#!news">News</a>
+      <a ng-href="#!contact">Contact</a>
+      <a ng-href="#!about">About</a>
+      <a ng-href="#!myreads">My Reads</a>
     </div>
+    <div class="content" ng-view></div>
+    <script>
+      var app = angular.module("myApp", ["ngRoute"]);
+      app.config(function ($routeProvider) {
+        $routeProvider
+          .when("/", {
+            templateUrl: "./html/home.html",
+          })
+          .when("/news", {
+            templateUrl: "./html/news.html",
+          })
+          .when("/contact", {
+            templateUrl: "./html/contact.html",
+          })
+          .when("/about", {
+            templateUrl: "./html/about.html",
+          })
+          .when("/myreads",{
+            templateUrl: "./html/myreads.html"
+          });
+      });
+    </script>
   </body>
 </html>
