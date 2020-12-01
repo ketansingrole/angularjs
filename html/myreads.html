@@ -1,3 +1,18 @@
-<div class="container">
-	<h2> My Reads </h2>
+<div class="container" ng-init="names=[1,2,3,4,5,6,7]" ng-controller="formCtrl">
+  <h2>My Reads</h2>
+  <table border="1">
+    <!-- <tr>
+      <th>Row number</th>
+    </tr> -->
+    <tr ng-repeat="i in names">
+      <td>{{i}}</td>
+      <td>{{i}}</td>
+      <td>{{i}}</td>
+    </tr>
+  </table>
+  <button ng-click="reset()">See More</button>
 </div>
+<script>
+  var app = angular.module('myApp', []);
+  
+  </script>
